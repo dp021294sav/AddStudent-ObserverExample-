@@ -29,7 +29,7 @@ class NameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let text = nameTextField.text, !text.isEmpty {
+        if nameTextField.text?.isEmpty == true || surnameTextField.text?.isEmpty == true {
             continueButton.isEnabled = false
         }
     }
@@ -60,6 +60,9 @@ class NameViewController: UIViewController {
     @objc private func keyboardWillHide(_ notification: Notification) {
         view.backgroundColor = .white
         continueButton.isEnabled = true
+        if nameTextField.text?.isEmpty == true || surnameTextField.text?.isEmpty == true {
+            continueButton.isEnabled = false
+        }
     }
     
  }

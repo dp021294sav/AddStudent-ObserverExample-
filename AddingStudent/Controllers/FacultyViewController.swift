@@ -29,7 +29,7 @@ class FacultyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if facultyTextField.text == "" {
+        if facultyTextField.text?.isEmpty == true {
             continueButton.isEnabled = false
         }
     }
@@ -60,6 +60,9 @@ class FacultyViewController: UIViewController {
     @objc private func keyboardWillHide(_ notification: Notification) {
         view.backgroundColor = .white
         continueButton.isEnabled = true
+        if facultyTextField.text == "" {
+            continueButton.isEnabled = false
+        }
     }
     
 }
